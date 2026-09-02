@@ -86,6 +86,17 @@ Add `mdhiyaulatha.tech` as a custom domain in Cloudflare Pages. The SPA fallback
 
 The GitHub and database serverless functions in `src/serverless/` use the Netlify Functions format. The portfolio keeps static project data as a fallback when those endpoints are unavailable on Cloudflare Pages. To restore dynamic server-side features, migrate those functions to Cloudflare Workers or Pages Functions before enabling them in production.
 
+#### Automatic deployment
+
+The workflow in `.github/workflows/deploy-cloudflare.yml` builds and deploys the site automatically after every push to `main`.
+
+Add these repository secrets in GitHub under **Settings > Secrets and variables > Actions**:
+
+- `CLOUDFLARE_API_TOKEN`: Cloudflare API token with **Account > Cloudflare Pages > Edit** permission
+- `CLOUDFLARE_ACCOUNT_ID`: Cloudflare account ID from the Cloudflare dashboard
+
+A local commit must be pushed with `git push origin main` before GitHub Actions can deploy it.
+
 ## 🎯 Usage
 
 Once the application is running, you'll be greeted with a Linux-style desktop interface. Here are some commands you can try:
