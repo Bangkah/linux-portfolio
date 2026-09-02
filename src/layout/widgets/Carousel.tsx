@@ -177,36 +177,36 @@ const CarouselIndicator = styled(motion.div)<{
 `;
 
 const DEFAULT_ITEMS: Item[] = [
-  {
-    title: "Text Animations",
-    description: "Cool text animations for your projects.",
-    id: 1,
-    icon: <FiFileText />,
-  },
-  {
-    title: "Animations",
-    description: "Smooth animations for your projects.",
-    id: 2,
-    icon: <FiCircle />,
-  },
-  {
-    title: "Components",
-    description: "Reusable components for your projects.",
-    id: 3,
-    icon: <FiLayers />,
-  },
-  {
-    title: "Backgrounds",
-    description: "Beautiful backgrounds and patterns for your projects.",
-    id: 4,
-    icon: <FiLayout />,
-  },
-  {
-    title: "Common UI",
-    description: "Common UI components are coming soon!",
-    id: 5,
-    icon: <FiCode />,
-  },
+  // {
+  //   title: "Text Animations",
+  //   description: "Cool text animations for your projects.",
+  //   id: 1,
+  //   icon: <FiFileText />,
+  // },
+  // {
+  //   title: "Animations",
+  //   description: "Smooth animations for your projects.",
+  //   id: 2,
+  //   icon: <FiCircle />,
+  // },
+  // {
+  //   title: "Components",
+  //   description: "Reusable components for your projects.",
+  //   id: 3,
+  //   icon: <FiLayers />,
+  // },
+  // {
+  //   title: "Backgrounds",
+  //   description: "Beautiful backgrounds and patterns for your projects.",
+  //   id: 4,
+  //   icon: <FiLayout />,
+  // },
+  // {
+  //   title: "Common UI",
+  //   description: "Common UI components are coming soon!",
+  //   id: 5,
+  //   icon: <FiCode />,
+  // },
 ];
 
 const DRAG_BUFFER = 0;
