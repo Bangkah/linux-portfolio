@@ -1,0 +1,7 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mdhiyaulatha.tech/sitemap.xml
+

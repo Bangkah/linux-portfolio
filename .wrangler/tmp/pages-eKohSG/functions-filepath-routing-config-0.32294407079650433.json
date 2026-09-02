@@ -1,0 +1,13 @@
+{
+  "routes": [
+    {
+      "routePath": "/api/github",
+      "mountPath": "/api",
+      "method": "GET",
+      "module": [
+        "api/github.ts:onRequestGet"
+      ]
+    }
+  ],
+  "baseURL": "/"
+}

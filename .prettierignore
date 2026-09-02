@@ -1,0 +1,12 @@
+# Ignore everything
+/*
+/src/db/*
+
+# Except this folder
+!/src
+!/.github
+!tsconfig.json
+!tsconfig.node.json
+!package.json
+!.prettierrc
+!.eslintrc.json
