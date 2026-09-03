@@ -14,7 +14,7 @@ export async function onRequest(context) {
   } else if (path.includes("id_rsa") || path.includes("ssh") || path.includes("config")) {
     customRoast = "[!] Nekat amat nyari kunci SSH. Mau minjam server buat mining kripto atau mau numpang ngerjain tugas kuliah?";
   } else {
-    customRoast = "[!] Ups, direktori ini kosong, tapi semangat nge-scan mu patut diacungi jempol. Kurang-kurangin begadang di warkop ya.";
+    customRoast = "[!] Ups, direktori ini kosong, tapi semangat nge-scan mu patut diacungi jempol. Hacker tidur, besok nyari tool lagi";
   }
 
   const responseBody = `
@@ -24,6 +24,7 @@ export async function onRequest(context) {
 Target URL  : ${request.url}
 Attacker IP : ${clientIP}
 User-Agent  : ${userAgent}
+HTTP Status : 123 (Custom Troll Code)
 Timestamp   : ${new Date().toISOString()}
 ------------------------------------------------------------
 ${customRoast}
@@ -35,10 +36,10 @@ Jangan macem-macem atau traktiran kopi denda 2 gelas!
 `;
 
   return new Response(responseBody, {
-    status: 200,
+    status: 123, 
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
-      "X-Honeypot-Level": "Maximum-Trap",
+      "X-Honeypot-Level": "Maximum-Troll",
       "X-Attacker-IP": clientIP
     },
   });
