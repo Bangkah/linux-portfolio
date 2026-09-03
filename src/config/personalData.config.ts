@@ -20,7 +20,7 @@ export const PERSONAL_DATA: PersonalData = {
     aboutMe:
       "I'm Muhammad Dhiyaul Atha, an Informatics Engineering student and open source enthusiast from Nagan Raya, Indonesia.\nI build Linux tools, backend systems, and cloud-native projects.",
     aboutDescription:
-      "I'm an Informatics Engineering student interested in Linux, backend development, DevOps, and cloud-native technologies. I enjoy building and maintaining open-source projects, particularly Linux tools, CLI applications, backend systems, and developer utilities. I'm currently learning Linux administration, Docker, REST APIs, CI/CD, automation, backend security, and reliable software systems. Open to internships, freelance opportunities, collaboration, and open-source projects.",
+      "I’m an Informatics Engineering student interested in Linux, backend development, DevOps, and cloud-native technologies.I enjoy building and maintaining open-source projects, particularly Linux tools, CLI applications, backend systems, and developer utilities. Some of my projects include ATHA, NetInfo, Bangkah Launcher, and Sentinel AI.I’m currently learning more about Linux administration, Docker, REST APIs, CI/CD, automation, backend security, and reliable software systems.Most of what I learn comes from building projects, experimenting, solving problems, and improving things along the way.Currently exploring: DevOps, cloud-native infrastructure, backend development, Linux systems, and open-source software.Open to internships, freelance opportunities, collaboration, and open-source projects.",
     socials: [
       {
         value: "GitHub",
@@ -31,15 +31,15 @@ export const PERSONAL_DATA: PersonalData = {
         href: "https://www.linkedin.com/in/muhammad-dhyaul-atha/",
       },
       {
-        value: "X",
-        href: "https://x.com/mdhiyaulatha",
+        value: "codersRank",
+        href: "https://profile.codersrank.io/user/bangkah",
       },
       {
         value: "Instagram",
         href: "https://www.instagram.com/mdhiyaulatha/",
       },
       {
-        value: "Website",
+        value: "Blog",
         href: "https://mdhiyaulatha.tech/",
       },
     ],
@@ -64,8 +64,8 @@ export const PERSONAL_DATA: PersonalData = {
       },
     },
     {
-      href: "https://x.com/mdhiyaulatha",
-      value: "X",
+      href: "https://profile.codersrank.io/user/bangkah",
+      value: "codersRank",
       style: {
         color: "#81A1C1",
         background: "rgba(129, 161, 193, 0.15)",
@@ -82,8 +82,8 @@ export const PERSONAL_DATA: PersonalData = {
       },
     },
     {
-      href: "https://mdhiyaulatha.tech/",
-      value: "Website",
+      href: "https://dev.to/bangkah",
+      value: "Blog",
       style: {
         color: "#B48EAD",
         background: "rgba(180, 142, 173, 0.15)",
@@ -159,11 +159,25 @@ export const PERSONAL_DATA: PersonalData = {
       },
       {
         icon: "icons/github-icon.svg",
-        value: "Portfolio Website",
+        value: "Muslim Life",
         description:
-          "Linux-inspired portfolio website for Muhammad Dhiyaul Atha.",
-        href: "https://mdhiyaulatha.tech/",
+          "Muslim Life adalah aplikasi web Islami berbasis React.js yang membantu umat Muslim dalam menjalani ibadah harian dengan lebih mudah, cepat, dan praktis.",
+        href: "https://muslim-life.vercel.app/"
       },
+      {
+        icon: "icons/github-icon.svg",
+        value: "AegisCrypt Web",  
+        description:
+          "AegisCrypt Web is a military-grade, browser-based encryption tool. It is designed to be Zero-Knowledge, meaning your files and passwords are processed entirely in your browser's RAM via Web Assembly / Web Crypto API and never transmitted to any server.",
+        href: "https://github.com/Bangkahdev/AegisCrypt-Web"
+      },
+      {
+        icon: "icons/github-icon.svg",
+        value: "Enkripsi App",
+        description:
+          "Aplikasi EnkripsiApp adalah program sederhana berbasis C# Windows Forms yang dibuat untuk mempelajari dan mengimplementasikan algoritma enkripsi teks. Aplikasi ini memiliki antarmuka grafis sederhana sehingga mudah digunakan untuk proses enkripsi maupun dekripsi.",
+        href: "https://github.com/Bangkahdev/EnkripsiApp"
+      }
     ],
   },
   achievements: {
@@ -185,23 +199,58 @@ export const PERSONAL_DATA: PersonalData = {
       {
         value: "eBPF Getting Started",
         description: "Isovalent | Issued December 2025",
-        href: "https://www.credly.com/",
+        href: "https://www.credly.com/badges/ec2001f7-8b28-4187-8a17-e6284ccf5ad8/linked_in_profile",
       },
       {
         value: "Cilium LB-IPAM & L2",
         description: "Isovalent | Issued June 2026",
-        href: "https://www.credly.com/",
+        href: "https://www.credly.com/badges/9710621c-945f-44a4-a695-bb2b05af26d4/linked_in_profile",
       },
       {
         value: "Discovery: Platform Engineer",
-        description: "Isovalent",
-        href: "https://www.credly.com/",
+        description: "Isovalent | Issued December 2025",
+        href: "https://www.credly.com/badges/b805ecba-1c0b-4afb-a78b-b54495a5c4dd/linked_in_profile",
       },
       {
+        value: "Belajar Membuat Aplikasi Web dengan React",
+        description: "Dicoding Indonesia | Issued June 2026",
+        href: "https://www.dicoding.com/certificates/4EXG1RJ8EPRL",
+      },    
+      {
         value: "Code Generation & Optimization with IBM Granite",
-        description: "Hacktiv8 x IBM SkillsBuild Student Development Initiative",
-        href: "https://www.ibm.com/granite",
+        description: "Hacktiv8 x IBM SkillsBuild Student Development Initiative | Issued Agustus 2025",
+        href: "https://www.credly.com/badges/af6c8d8c-da8f-4f19-a213-9e63b2f3bd93/linked_in_profile",
       },
-    ],
-  },
+      {
+        value: "Belajar Prinsip Pemrograman SOLID",
+        description: "Dicoding Indonesia | Issued Oktober 2025",
+        href: "https://www.dicoding.com/certificates/N9ZO2M7N6PG5",
+      },
+      {
+        value: "Introduction to Cybersecurity",
+        description: "Cisco | Issued April 2026",
+        href: "https://www.credly.com/badges/f2705f25-3274-4c1f-ab4c-0395791532c5/linked_in_profile",
+      },
+      {
+        value: "Introduction to Information Security",
+        description: "Cyber Academy Indonesia | Issued September 2023",
+        href: "https://www.cyberacademy.id/certificate/PKMI1109231611",
+      },
+      {
+        value: "Belajar Penerapan Data Science dengan Microsoft Fabric",
+        description: "Dicoding Indonesia | Issued April 2026",
+        href: "https://www.dicoding.com/certificates/1OP8R4N6LZQK",
+      },
+      {
+        value: "Membangun Aplikasi Gen AI dengan Microsoft Azure",
+        description: "Dicoding Indonesia | Issued April 2026",
+        href: "https://www.dicoding.com/certificates/QLZ99V437Z5D",
+      },
+      {
+        value: "Belajar Fundamental Deep Learning",
+        description: "Dicoding Indonesia | Issued Agustus 2026",
+        href: "https://www.dicoding.com/certificates/1OP8768Y1ZQK"
+      }
+    ]
+  }
 };

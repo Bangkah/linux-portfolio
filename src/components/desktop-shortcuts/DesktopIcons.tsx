@@ -9,6 +9,7 @@ export type IconKey =
   | "Instagram"
   | "PDF"
   | "Browser"
+  | "codersRank"
   | "Fullscreen"
   | "FullscreenExit"
   | "Email";
@@ -72,6 +73,17 @@ export const Icons: Record<IconKey, React.ReactNode> = {
       aria-hidden
     >
       <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.47 4.73-2.47 5.06 0 6 3.33 6 7.66V24h-5v-7.58c0-1.81-.03-4.14-2.52-4.14-2.52 0-2.9 1.97-2.9 4v7.72h-5V8z" />
+    </svg>
+  ),
+  codersRank: (
+    <svg
+      width="28"
+      height="28"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden
+    >
+      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
     </svg>
   ),
   Instagram: (
