@@ -1,4 +1,6 @@
 [build]
+  command = "npm run build"
+  publish = "dist"
   functions = "/src/serverless/"
 
 # Environment Variables
@@ -6,3 +8,14 @@
 # for the GitHub API functionality to work properly.
 # Go to Site Settings > Environment Variables in Netlify dashboard
 # and add: VITE_GITHUB_TOKEN = your_github_personal_access_token
+
+[[redirects]]
+  from = "/.well-known/*"
+  to = "/.well-known/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
