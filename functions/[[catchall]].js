@@ -28,7 +28,7 @@ export async function onRequest(context) {
   // 3. Serangan Berat: XXE / Deserialization
   else if (lowerUrl.includes("<!entity") || lowerUrl.includes("system") || lowerUrl.includes("dtd") || lowerUrl.includes("serialization") || lowerUrl.includes("objectinputstream")) {
     attackType = "XML External Entity (XXE)";
-    customRoast = "Mainan XML entity lama nih ye! Parser di sini udah kebal karena makannya gorengan hangat tiap sore.";
+    customRoast = "Mainan XML entity lama nih ye! Parser di sini udah kebal karena pagi ngopi, siang ngopi, malam ngopi. bukan lambung aja yang kebal, tapi parser juga.";
     fakePayload = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<root>\n  <status>fun_mode_on</status>\n  <pesan>Kurang-kurangin begadang, banyakin ngopi bareng kating.</pesan>\n</root>";
   }
   // 4. Serangan Menengah: SQL Injection
@@ -41,8 +41,8 @@ export async function onRequest(context) {
   else if (fullUrlString.includes("..") || fullUrlString.includes("passwd") || fullUrlString.includes("win.ini") || fullUrlString.includes("shadow") || fullUrlString.includes("hosts")) {
     attackType = "Path Traversal / LFI";
     customRoast = "Nyari file sistem ya? Nih bonus file rahasia paling berharga buat anak kos: panduan menyeduh mie instan agar kuahnya pas.";
-    fakePayload = "1. Didihkan air secukupnya di warkop.\n2. Masukkan mie dan bumbu sesuai takaran.\n3. Jangan lupa pakai telur setengah matang biar hidup lebih tenang.";
-  } 
+    fakePayload = "1. Didihkan air secukupnya di warkop.\n2. Masukkan mie dan bumbu sesuai takaran.\n3. Jangan lupa pakai telur setengah matang biar hidup lebih tenang.\n4. Tidur besok nebak path lagi";
+  }  
   // 6. Serangan Menengah: XSS
   else if (fullUrlString.includes("<script>") || fullUrlString.includes("onerror") || fullUrlString.includes("onload") || lowerUrl.includes("alert(")) {
     attackType = "Cross-Site Scripting (XSS)";
@@ -92,6 +92,7 @@ ${fakePayload}
 [LOGGED TO WARKOP DASHBOARD]:
 Aktivitas tercatat sebagai: ${attackType}.
 Catatan santai: Dicatat sambil nunggu pesanan kopi anda datang ke meja.
+HACKER TIDUR, BESOK NYARI TOOL LAGI!
 ============================================================
 `;
 
