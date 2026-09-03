@@ -12,12 +12,12 @@ export async function onRequest(context) {
 
 const fullUrlString = request.url;
 
-  // Deteksi SQL Injection berdasarkan seluruh URL atau parameter query
-  if (fullUrlString.includes("union") || fullUrlString.includes("select") || fullUrlString.includes("'") || fullUrlString.includes("OR 1=1")) {
+  // Deteksi SQL Injection (Cek parameter query atau string URL mentah)
+  if (url.search.includes("union") || url.search.includes("select") || url.search.includes("'") || url.search.includes("OR") || fullUrlString.includes("OR")) {
     attackType = "SQL Injection (SQLi) Attempt";
     customRoast = "[!] Wah, mau nyoba SQL Injection ya? Tenang, database portofolio ini cuma nyimpen daftar warkop favorit, gak ada data sensitif. Aman bosku!";
     fakePayload = "sql_syntax_error: unexpected token near 'UNION SELECT' at line 1";
-  } 
+  }
   // Deteksi Path Traversal / LFI
   else if (fullUrlString.includes("..") || fullUrlString.includes("passwd") || fullUrlString.includes("win.ini")) {
     attackType = "Path Traversal / LFI Attempt";
