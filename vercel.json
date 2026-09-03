@@ -1,7 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/.well-known/(.*)", "destination": "/.well-known/$1" },
-    { "source": "/.env", "destination": "/env-warning.txt" },
-    { "source": "/wp-login.php", "destination": "/env-warning.txt" }
-  ]
-}
