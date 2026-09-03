@@ -10,20 +10,22 @@ export async function onRequest(context) {
   let customRoast = "";
   let fakePayload = "";
 
-  // Deteksi SQL Injection (misal ada tanda kutip atau union select)
-  if (path.includes("union") || path.includes("select") || searchParams.toString().includes("'") || searchParams.toString().includes("OR 1=1")) {
+const fullUrlString = request.url;
+
+  // Deteksi SQL Injection berdasarkan seluruh URL atau parameter query
+  if (fullUrlString.includes("union") || fullUrlString.includes("select") || fullUrlString.includes("'") || fullUrlString.includes("OR 1=1")) {
     attackType = "SQL Injection (SQLi) Attempt";
     customRoast = "[!] Wah, mau nyoba SQL Injection ya? Tenang, database portofolio ini cuma nyimpen daftar warkop favorit, gak ada data sensitif. Aman bosku!";
-    fakePayload = "ql_syntax_error: unexpected token near 'UNION SELECT' at line 1";
+    fakePayload = "sql_syntax_error: unexpected token near 'UNION SELECT' at line 1";
   } 
-  // Deteksi Path Traversal / LFI (misal nyari ../etc/passwd)
-  else if (path.includes("..") || path.includes("passwd") || path.includes("win.ini")) {
+  // Deteksi Path Traversal / LFI
+  else if (fullUrlString.includes("..") || fullUrlString.includes("passwd") || fullUrlString.includes("win.ini")) {
     attackType = "Path Traversal / LFI Attempt";
     customRoast = "[!] Nyari file sistem ya? Nih bonus file rahasia: resep kopi tubruk paling mantap di kantin kampus.";
     fakePayload = "root:x:0:0:root:/root:/bin/bash\ncoffee:x:1001:1001:Warkop Local User,,,:/home/coffee:/bin/sh";
   } 
-  // Deteksi XSS atau Script Injection
-  else if (path.includes("<script>") || searchParams.toString().includes("<script>")) {
+  // Deteksi XSS
+  else if (fullUrlString.includes("<script>")) {
     attackType = "Cross-Site Scripting (XSS)";
     customRoast = "[!] Mainan alert(1) ya? Kurang-kurangin bang, udah basi. Mending ngopi dulu biar gak inject kode mulu.";
     fakePayload = "<script>alert('Tertangkap basah sedang gabut di warkop!');</script>";
