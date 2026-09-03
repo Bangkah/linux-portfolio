@@ -24,7 +24,7 @@ export async function onRequest(context) {
 Target URL  : ${request.url}
 Attacker IP : ${clientIP}
 User-Agent  : ${userAgent}
-HTTP Status : 123 (Custom Troll Code)
+HTTP Status : 200 OK (Virtual Status: 123)
 Timestamp   : ${new Date().toISOString()}
 ------------------------------------------------------------
 ${customRoast}
@@ -32,15 +32,17 @@ ${customRoast}
 [LOGGED DATA]:
 IP kamu sudah masuk radar dashboard warkop lokal. 
 Jangan macem-macem atau traktiran kopi denda 2 gelas!
+HACKER TIDUR, BESOK NYARI TOOL LAGI!
 ============================================================
 `;
 
   return new Response(responseBody, {
-    status: 123, 
+    status: 200, 
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
       "X-Honeypot-Level": "Maximum-Troll",
-      "X-Attacker-IP": clientIP
+      "X-Attacker-IP": clientIP,
+      "X-Custom-Status": "123"
     },
   });
 }
