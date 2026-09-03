@@ -4,7 +4,7 @@ export default function handler(req: any, res: any) {
 
   return res.status(403).setHeader('Content-Type', 'application/json').json({
     status: "ACCESS_DENIED",
-    warning: "Hacker jangan hack, situs anak teknik nih bos!",
+    warning: "Hacker jangan hack, masih pemula puh!",
     message: "Aktivitas scanning atau enumerasi Anda terdeteksi dan tercatat secara permanen.",
     attacker_info: {
       ip: clientIp,
