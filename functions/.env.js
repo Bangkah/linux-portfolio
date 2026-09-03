@@ -25,7 +25,7 @@ Timestamp   : ${new Date().toISOString()}
    3. sebungkus 76 Apel biar gak salah klik.
    
    Udah ah, mending balik kanan, push repo sendiri, 
-   atau bantuin tumpahin ide buat nge-golin Barcelona!
+   HACKER TIDUR, BESOK NYARI TOOL LAGI!
 ============================================================
 `;
 
