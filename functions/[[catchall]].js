@@ -1,6 +1,7 @@
 export async function onRequest(context) {
   const request = context.request;
   const url = new URL(request.url);
+  const path = url.pathname;
   const clientIP = request.headers.get("cf-connecting-ip") || "Unknown IP";
   const userAgent = request.headers.get("user-agent") || "Unknown Scanner";
   const fullUrlString = request.url;
@@ -9,6 +10,8 @@ export async function onRequest(context) {
   let attackType = "Pengunjung Santai / Nongkrong";
   let customRoast = "";
   let fakePayload = "";
+  
+  // Sisa kode ke bawah tetap sama...
 
   // 1. Serangan Berat: RCE / Command Injection
   if (lowerUrl.includes("cat%20") || lowerUrl.includes("wget") || lowerUrl.includes("curl") || lowerUrl.includes("bash") || lowerUrl.includes("sh") || lowerUrl.includes("uname") || lowerUrl.includes("id;") || lowerUrl.includes("nc%20") || lowerUrl.includes("exec") || lowerUrl.includes("system")) {
