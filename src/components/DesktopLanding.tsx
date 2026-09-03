@@ -14,8 +14,8 @@ import { ThemeSwitcherProps, WindowManager } from "../types/window";
 import { isMobileDevice } from "../utils/typeGuards";
 import Draggable from "../layout/Draggable";
 import Carousel from "../layout/widgets/Carousel";
-import Tooltip from "../layout/tooltips/Tooltip";
-import { TOOLTIP_IDS } from "../layout/tooltips/tooltips.config";
+// import Tooltip from "../layout/tooltips/Tooltip";
+// import { TOOLTIP_IDS } from "../layout/tooltips/tooltips.config";
 import MobileWidgetButton from "../layout/widgets/MobileWidgetButton";
 import { FiImage } from "react-icons/fi";
 
@@ -170,7 +170,7 @@ const DesktopLanding: React.FC<ThemeSwitcherProps> = ({
         )}
 
         <Draggable {...carouselPos}>
-          <MobileWidgetButton
+          {/* <MobileWidgetButton
             isMobile={isMobile}
             onClick={() => setShowCarouselTooltip(false)}
             widget={
@@ -179,7 +179,7 @@ const DesktopLanding: React.FC<ThemeSwitcherProps> = ({
                 themeSwitcher={themeSwitcher}
                 baseWidth={isMobile ? 250 : 300}
                 autoplay={false}
-                loop={true}
+                loop={false}
               />
             }
           >
@@ -199,15 +199,15 @@ const DesktopLanding: React.FC<ThemeSwitcherProps> = ({
             >
               <FiImage size={24} color="white" />
             </div>
-          </MobileWidgetButton>
+          </MobileWidgetButton> */}
           <div
             style={{ position: "relative", bottom: isMobile ? "60px" : "50px" }}
           >
-            <Tooltip
+            {/* <Tooltip
               id={TOOLTIP_IDS.CAROUSEL_HINT}
               showCondition={showCarouselTooltip}
               onClose={() => setShowCarouselTooltip(false)}
-            />
+            /> */}
           </div>
         </Draggable>
       </themeContext.Provider>
