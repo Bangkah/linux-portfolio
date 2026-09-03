@@ -1,8 +1,5 @@
-# Tangkap jalur pemindaian dan arahkan ke file peringatan statis
 /.env           /env-warning.txt    200
 /wp-login.php   /env-warning.txt    200
 /xmlrpc.php     /env-warning.txt    200
 /config.json    /env-warning.txt    200
-
-# Aturan standar SPA (wajib ada di baris paling bawah untuk Cloudflare Pages)
 /*              /index.html         200
