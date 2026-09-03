@@ -13,10 +13,11 @@ Client IP   : ${clientIP}
 User Agent  : ${userAgent}
 Timestamp   : ${new Date().toISOString()}
 ------------------------------------------------------------
-[!] PESAN DARI ADMIN (Anak Teknik Informatika):
+[!] PESAN DARI ADMIN (Maba Teknik Informatika):
  
    Waduh, rajin banget mas nge-scan .env portofolio orang? 
    Mau nyari apa? Kunci kosan atau token ngopi di warkop?
+   Btw saya masih pemula, jadi jangan di hack ya, nanti saya nangis. 😭
    
    Situs ini dilindungi oleh:.
    1. Doa ibu supaya kuliah lancar.
