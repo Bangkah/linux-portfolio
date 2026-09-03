@@ -1,8 +1,6 @@
 {
-  "routes": [
-    { "src": "/\\.well-known/(.*)", "dest": "/.well-known/$1" },
-    { "src": "/(wp-login\\.php|xmlrpc\\.php|\\.env|config\\.json|admin|backup\\.zip|phpmyadmin)", "dest": "/api/security-check" },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/.well-known/(.*)", "destination": "/.well-known/$1" },
+    { "source": "/(wp-login\\.php|xmlrpc\\.php|\\.env|config\\.json|admin|backup\\.zip|phpmyadmin)", "destination": "/api/security-check" }
   ]
 }
