@@ -7,11 +7,10 @@ export async function onRequest(context) {
   const fullUrlString = request.url;
   const lowerUrl = fullUrlString.toLowerCase();
 
-  let attackType = "Pengunjung Santai / Nongkrong";
+  let isAttack = true; // Flag untuk menandai apakah ini serangan atau bukan
+  let attackType = "";
   let customRoast = "";
   let fakePayload = "";
-  
-  // Sisa kode ke bawah tetap sama...
 
   // 1. Serangan Berat: RCE / Command Injection
   if (lowerUrl.includes("cat%20") || lowerUrl.includes("wget") || lowerUrl.includes("curl") || lowerUrl.includes("bash") || lowerUrl.includes("sh") || lowerUrl.includes("uname") || lowerUrl.includes("id;") || lowerUrl.includes("nc%20") || lowerUrl.includes("exec") || lowerUrl.includes("system")) {
@@ -55,25 +54,29 @@ export async function onRequest(context) {
     customRoast = "Rajin banget nge-scan direktori tersembunyi! Semangatnya patut diacungi jempol buat tugas praktikum besok pagi.";
     fakePayload = "APP_NAME=WarkopHoneypot\nDB_HOST=localhost\nNOTE=Semangat ya nge-scan-nya, semoga lekas dapat cache berharga!";
   }
-  // 8. Tambahan Simulasi Baru: API Enumeration / Token Leaking Test
-  else if (path.includes("api") || path.includes("token") || path.includes("auth") || path.includes("graphql") || path.includes("swagger")) {
+  // 8. API Enumeration / Token Leaking Test
+  else if (path.includes("token") || path.includes("auth") || path.includes("graphql") || path.includes("swagger")) {
     attackType = "API & Endpoint Enumeration";
     customRoast = "Wah, lagi berburu endpoint API ya? Sayang sekali dokumentasinya cuma ada di ingatan pemilik web pas lagi setengah sadar di warkop.";
     fakePayload = "{\n  \"endpoints\": [\n    {\n    \"path\": \"/api/kopi\",\n    \"status\": \"Available (Hot & Fresh)\"\n  },\n  {\n    \"path\": \"/api/gorengan\",\n    \"status\": \"Habis, sisa bakwan doang\"\n  }\n  ]\n}";
   }
-  // 9. Tambahan Simulasi Baru: Git Leak / Repository Scraping
-  else if (path.includes("HEAD") || path.includes("config") || path.includes("index") || path.includes("refs")) {
+  // 9. Git Leak / Repository Scraping
+  else if (path.includes("HEAD") || path.includes("refs")) {
     attackType = "Git Repository Scraping";
     customRoast = "Mencoba mengorek history git ya? Isinya cuma commit message galau pas ngerjain laprak, gak ada source code rahasia.";
     fakePayload = "[core]\n\trepositoryformatversion = 0\n\tfilemode = true\n\tbare = false\n\tlogallrefupdates = true\n# Commit terakhir: 'bismillah fix inimah'";
   }
-  // 10. Traffic Normal / Pengunjung Biasa
+  // 10. Pengunjung Normal -> Teruskan ke Web Statis (Portofolio)
   else {
-    attackType = "Standard Web Traffic";
-    customRoast = "Halo, Perkenalkan saya Muhammad Dhiyaul Atha.";
-    fakePayload = "<html><body><h1>Selamat Datang di Portofolio Muhammad Dhiyaul Atha</h1><p>udah itu aja heheh.</p></body></html>";
+    isAttack = false;
   }
 
+  // JIKA BUKAN SERANGAN: Biarkan Cloudflare menyajikan web statis asli (Portofolio)
+  if (!isAttack) {
+    return context.next();
+  }
+
+  // JIKA TERINDIKASI SERANGAN: Tampilkan balasan Honeypot Simulator Warkop
   const responseBody = `
 ============================================================
 [WARKOP VIRTUAL LAB - SIMULATOR SYSTEM]
