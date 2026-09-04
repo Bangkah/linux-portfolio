@@ -70,8 +70,8 @@ export async function onRequest(context) {
   // 10. Traffic Normal / Pengunjung Biasa
   else {
     attackType = "Standard Web Traffic";
-    customRoast = "Halo, Pengunjung budiman! Selamat datang di portofolio ini. Silakan dinikmati halamannya, semoga harimu menyenangkan.";
-    fakePayload = "<html><body><h1>Selamat Datang di Portofolio Muhammad Dhiyaul Atha</h1><p>Status: Aman, santai, dan damai.</p></body></html>";
+    customRoast = "Halo, Perkenalkan saya Muhammad Dhiyaul Atha.";
+    fakePayload = "<html><body><h1>Selamat Datang di Portofolio Muhammad Dhiyaul Atha</h1><p>udah itu aja heheh.</p></body></html>";
   }
 
   const responseBody = `
