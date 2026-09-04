@@ -1,6 +1,6 @@
 import { DefaultTheme } from "styled-components";
 import { Suspense, lazy } from "react";
-
+import { Helmet } from "react-helmet-async";
 import { useTheme } from "./hooks/useTheme";
 import SplashScreen from "./components/SplashScreen";
 import ThemeSwitcher from "./layout/widgets/ThemeSwitcher";
@@ -10,9 +10,9 @@ import ShapeGrid from "./components/Antigravity";
 import LoadingStatusBar from "./components/LoadingStatusBar";
 
 function App() {
-  // themes
   const { theme, themeLoaded, setMode, resumePath, isBGChange, setIsBGChange } =
     useTheme();
+
   const DesktopLanding = lazy(() => {
     const timeout = isBGChange ? 50 : 2000;
     return new Promise(resolve => setTimeout(resolve, timeout)).then(() => {
@@ -24,6 +24,7 @@ function App() {
   const themeSwitcher = (switchTheme: DefaultTheme) => {
     setMode(switchTheme);
   };
+
   const themeProps: ThemeSwitcherProps = {
     themeSwitcher,
     currentTheme: theme,
@@ -35,7 +36,20 @@ function App() {
 
   return (
     <>
-      {/* Theme Switcher - 3-way toggle for Linux, Fedora, Kali themes */}
+      {/* React Helmet Dynamic Meta Tags */}
+      <Helmet>
+        <title>Muhammad Dhiyaul Atha (Bangkah) — DevOps & Backend Engineer</title>
+        <meta
+          name="description"
+          content="Portofolio resmi Muhammad Dhiyaul Atha (Bangkah). Informatics Engineering Student, Open Source Maintainer (NetInfo, ATHA), Linux Enthusiast, DevOps & Backend Engineer."
+        />
+        <meta
+          name="keywords"
+          content="Muhammad Dhiyaul Atha, Bangkah, Atha, NetInfo CLI, ATHA Pacman, Bangkah Launcher, Linux Engineer Indonesia, DevOps Engineer Aceh, Backend Developer"
+        />
+      </Helmet>
+
+      {/* Theme Switcher */}
       <ThemeSwitcher {...themeProps} />
       {!themeLoaded ? (
         <div
@@ -53,13 +67,13 @@ function App() {
           <ShapeGrid
             speed={0.1}
             squareSize={100}
-            hoverTrailAmount={18} // number of trailing hovered shapes (0 = no trail)
+            hoverTrailAmount={18}
             direction="diagonal"
             borderColor="rgba(59, 246, 137, 0.16)"
             hoverFillColor={theme.colors.text[100]}
             shape="triangle"
           />
-          {<LoadingStatusBar {...themeProps} />}
+          <LoadingStatusBar {...themeProps} />
         </div>
       ) : (
         <Suspense fallback={<SplashScreen {...themeProps} />}>
