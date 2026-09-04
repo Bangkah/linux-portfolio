@@ -14,7 +14,7 @@ export const SEO: React.FC = () => {
       <meta name="description" content={description} />
       <meta
         name="keywords"
-        content="Muhammad Dhiyaul Atha, Bangkah, NetInfo CLI, ATHA Pacman, DevOps Engineer Indonesia, Backend Developer Aceh, Linux Enthusiast, Open Source Maintainer"
+        content="Muhammad Dhiyaul Atha, Dhiyaul, Atha, Bangkah, NetInfo CLI, ATHA Pacman, DevOps Engineer Indonesia, Backend Developer Aceh, Linux Enthusiast, Open Source Maintainer"
       />
       <meta name="author" content={PERSONAL_DATA.personalInfo.name} />
 

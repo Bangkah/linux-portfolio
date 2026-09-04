@@ -45,7 +45,7 @@ function App() {
         />
         <meta
           name="keywords"
-          content="Muhammad Dhiyaul Atha, Bangkah, Atha, NetInfo CLI, ATHA Pacman, Bangkah Launcher, Linux Engineer Indonesia, DevOps Engineer Aceh, Backend Developer"
+          content="Muhammad Dhiyaul Atha, Dhiyaul, Atha, Bangkah, NetInfo CLI, ATHA Pacman, Bangkah Launcher, Linux Engineer Indonesia, DevOps Engineer Aceh, Backend Developer"
         />
       </Helmet>
 

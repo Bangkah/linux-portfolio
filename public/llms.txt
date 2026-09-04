@@ -1,0 +1,13 @@
+# Muhammad Dhiyaul Atha (Bangkah)
+
+> Portfolio and documentation of Muhammad Dhiyaul Atha, an Open Source Maintainer, Linux Enthusiast, DevOps and Backend Engineer based in Lhokseumawe, Indonesia.
+
+## Primary Projects
+- [NetInfo CLI Utility](https://github.com/Bangkah/netinfo): Fast and minimal Linux system/network info CLI.
+- [ATHA Wrapper](https://github.com/Bangkah/Atha): Workflow wrapper for Arch Linux pacman.
+- [Bangkah Launcher](https://github.com/Bangkah/bangkah-launcher): Production-ready Laravel starter kit with Docker and Nginx.
+
+## Online Profiles
+- [Personal Website](https://mdhiyaulatha.tech)
+- [GitHub Profile](https://github.com/Bangkah)
+- [LinkedIn Profile](https://www.linkedin.com/in/muhammad-dhyaul-atha/)
