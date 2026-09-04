@@ -1,5 +1,14 @@
-/.env           /env-warning.txt    200
-/wp-login.php   /env-warning.txt    200
-/xmlrpc.php     /env-warning.txt    200
-/config.json    /env-warning.txt    200
-/*              /index.html         200
+# Exclude API endpoints & Static assets dari rewrite static HTML
+/api/*          /api/:splat          200
+/assets/*       /assets/:splat       200
+
+# Honeypot Traps (Bot/Scanner Interception)
+/.env           /env-warning.txt     200
+/env.json       /env-warning.txt     200
+/wp-login.php   /env-warning.txt     200
+/xmlrpc.php     /env-warning.txt     200
+/config.json    /env-warning.txt     200
+/.git           /git-warning.txt     200
+
+# SPA Fallback (Routing Frontend Single Page App)
+/*              /index.html          200
