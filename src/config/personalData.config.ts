@@ -113,6 +113,12 @@ export const PERSONAL_DATA: PersonalData = {
           "\"netinfo is a fast, minimal, and reliable command-line utility to display your network and system information. Designed for troubleshooting, auditing, scripting, or simply checking your connection status, netinfo only shows verifiable and essential data.\"",
         href: "https://www.linuxlinks.com/netinfo-display-network-system-information/",
       },
+      {
+        value: "CodersRank Leaderboard",
+        description:
+          "Ranked #20 Developer in Indonesia (Top 1% Globally) on CodersRank, with Top 5 badges in FastAPI, Python, and Shell based on open-source activity.",
+        href: "https://profile.codersrank.io/user/bangkah",
+      }
     ],
   },
   experience: {
@@ -196,6 +202,12 @@ export const PERSONAL_DATA: PersonalData = {
         description:
           "NetInfo was reviewed and featured on LinuxLinks as a recommended free & open-source CLI utility for Linux system and network diagnosis.",
         href: "https://www.linuxlinks.com/netinfo-display-network-system-information/",
+      },
+      {
+        value: "Top 20 Developer in Indonesia (CodersRank)",
+        description:
+          "Ranked #20 among all developers in Indonesia with a CodersRank Score of 1,713 and Top 1% global standing.",
+        href: "https://profile.codersrank.io/leaderboard/developer?country=Indonesia",
       },
     ],
   },

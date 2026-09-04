@@ -5,6 +5,7 @@ import { PreImg } from "../../../styles/Welcome.styled";
 import { SKILL_DETAILS_MAP } from "./skills.config";
 import { PERSONAL_DATA } from "../../../config/personalData.config";
 import { themeContext } from "../../../hooks/useTheme";
+import GithubActivity from "../../GithubActivity"; 
 
 const HeroSection = styled.section`
   display: flex;
@@ -58,7 +59,6 @@ const HomeTab: React.FC = () => {
   const themeContextValue = useContext(themeContext);
   const pdfUrl = themeContextValue?.resumePath;
 
-  // Update resume link dengan URL dinamis
   const quickLinks = PERSONAL_DATA.quickLinks.map(link =>
     link.value === "Resume" ? { ...link, href: pdfUrl } : link
   );
@@ -74,12 +74,10 @@ const HomeTab: React.FC = () => {
           />
         </PreImg>
         <HeroContent>
-          {/* Menampilkan Nama Lengkap */}
           <NameHeading>
             {PERSONAL_DATA.personalInfo.fullName || PERSONAL_DATA.personalInfo.name}
           </NameHeading>
           
-          {/* Menampilkan Title / Tagline */}
           <TitleText>{PERSONAL_DATA.personalInfo.title}</TitleText>
 
           <QuickLinks role="group" aria-label="Quick links">
@@ -120,7 +118,7 @@ const HomeTab: React.FC = () => {
       </section>
 
       {/* Skills Overview */}
-      <section style={{ padding: "32px 0" }}>
+      <section style={{ padding: "16px 0 24px 0" }}>
         <h2
           style={{
             margin: "0 0 12px 0",
@@ -309,6 +307,9 @@ const HomeTab: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* GitHub Calendar Component */}
+      <GithubActivity />
     </div>
   );
 };
