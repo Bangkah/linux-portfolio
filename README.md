@@ -147,12 +147,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/muhammad-dhyaul-atha/)
 [![X / Twitter](https://img.shields.io/badge/X-%231DA1F2?style=for-the-badge&logo=x&logoColor=white)](https://x.com/mdhiyaulatha)
 
-## 🙏 Acknowledgements
-
-This project is based on a fork of [Kali-Linux-Hacker-Portfolio](https://github.com/jihedkdiss/Kali-Linux-Hacker-Portfolio). I would like to thank the original authors and contributors for their excellent work and for making the project open source.
-
-This fork builds upon their work with additional modifications and improvements to better showcase my professional portfolio.
-
 ## 📊 Project Statistics
 
 - **Languages**: TypeScript, React, CSS-in-JS with styled components.
