@@ -40,7 +40,7 @@ export const callServerlessFunction = async <T = unknown>(
 
   if (import.meta.env.DEV) {
     const handlerPath = `../../serverless/${endpoint}`;
-    const { handler } = await import(handlerPath);
+    const { handler } = await import(/* @vite-ignore */ handlerPath);
     logger.info(`Local Dev env identified. using ${handlerPath}instead`);
 
     const event: NetlifyFunctionEvent = {

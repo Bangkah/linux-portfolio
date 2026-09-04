@@ -3,7 +3,6 @@ import styled, { keyframes } from "styled-components";
 import { WindowState } from "../../types/window";
 import { PERSONAL_DATA } from "../../config/personalData.config";
 import logger from "../../utils/logger";
-import { createMessage } from "../../services/databaseService";
 
 type EmailFormInputs = {
   name: string;
@@ -288,12 +287,9 @@ const EmailWindow: React.FC<WindowState> = () => {
   ) => {
     const { name, value } = e.target;
 
-    // Prevent unnecessary rerenders when typing - same logic as terminal
     setRerender(false);
-
     setFormData(prev => ({ ...prev, [name]: value }));
 
-    // Clear error for field when user types
     if (errors[name as keyof EmailFormInputs]) {
       setErrors(prev => {
         const newErrors = { ...prev };
@@ -302,7 +298,6 @@ const EmailWindow: React.FC<WindowState> = () => {
       });
     }
 
-    // Reset submission states when user starts typing again
     setIsSubmitSuccessful(false);
     setIsSubmitFailed(false);
   };
@@ -333,7 +328,7 @@ const EmailWindow: React.FC<WindowState> = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const onSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!validateForm()) {
@@ -346,27 +341,31 @@ const EmailWindow: React.FC<WindowState> = () => {
     setIsSubmitFailed(false);
 
     try {
-      // First save message to database
-      await createMessage({
-        message: {
-          type: "contact_form",
-          ...formData,
-          submittedAt: new Date().toISOString(),
-          userAgent: navigator.userAgent,
+      // Mengirim langsung ke Formspree
+      const response = await fetch("https://formspree.io/f/xqpklqkb", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
+        body: JSON.stringify(formData),
       });
 
-      logger.info("Email form submitted and saved to database");
-      setIsSubmitSuccessful(true);
-      setIsSubmitFailed(false);
+      if (response.ok) {
+        logger.info("Email form submitted successfully to Formspree");
+        setIsSubmitSuccessful(true);
+        setIsSubmitFailed(false);
 
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
+        // Reset input form
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Formspree service response not ok");
+      }
     } catch (error) {
       logger.info(`Email form failed: ${error}`);
       setIsSubmitSuccessful(false);
@@ -377,7 +376,6 @@ const EmailWindow: React.FC<WindowState> = () => {
     }
   };
 
-  // Auto-scroll to bottom when form state changes (success message, errors, submit state)
   useEffect(() => {
     const el = containerRef?.current as unknown as HTMLElement | null;
     if (el) {
@@ -424,8 +422,6 @@ const EmailWindow: React.FC<WindowState> = () => {
             maxWidth: 650,
           }}
           onSubmit={onSubmit}
-          name="contact"
-          method="POST"
           noValidate
         >
           <FormGroup>
@@ -454,7 +450,6 @@ const EmailWindow: React.FC<WindowState> = () => {
               value={formData.email}
               onChange={handleInputChange}
               required
-              pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
             />
             {errors.email && <ErrorText>{errors.email}</ErrorText>}
           </FormGroup>

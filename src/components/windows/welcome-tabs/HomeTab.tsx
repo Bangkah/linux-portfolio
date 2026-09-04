@@ -5,11 +5,16 @@ import { PreImg } from "../../../styles/Welcome.styled";
 import { SKILL_DETAILS_MAP } from "./skills.config";
 import { PERSONAL_DATA } from "../../../config/personalData.config";
 import { themeContext } from "../../../hooks/useTheme";
+
 const HeroSection = styled.section`
   display: flex;
   gap: 20px;
   align-items: center;
   padding: 32px 0;
+  @media (max-width: 640px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const ProfileImage = styled.img`
@@ -24,17 +29,22 @@ const ProfileImage = styled.img`
 const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 `;
 
-const NameLogoHeading = styled.img`
-  margin-right: auto;
+const NameHeading = styled.h1`
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #eceff4;
+  letter-spacing: -0.5px;
 `;
 
 const TitleText = styled.p`
-  margin: 6px 0 0 0;
-  font-size: 1.05rem;
+  margin: 4px 0 0 0;
+  font-size: 1rem;
   color: #d8dee9;
+  line-height: 1.4;
 `;
 
 const QuickLinks = styled.div`
@@ -48,7 +58,7 @@ const HomeTab: React.FC = () => {
   const themeContextValue = useContext(themeContext);
   const pdfUrl = themeContextValue?.resumePath;
 
-  // Update resume link with dynamic URL
+  // Update resume link dengan URL dinamis
   const quickLinks = PERSONAL_DATA.quickLinks.map(link =>
     link.value === "Resume" ? { ...link, href: pdfUrl } : link
   );
@@ -64,12 +74,14 @@ const HomeTab: React.FC = () => {
           />
         </PreImg>
         <HeroContent>
-          <NameLogoHeading
-            src={PERSONAL_DATA.personalInfo.fullNameLogo}
-            alt={PERSONAL_DATA.personalInfo.name}
-            height="35"
-          ></NameLogoHeading>
+          {/* Menampilkan Nama Lengkap */}
+          <NameHeading>
+            {PERSONAL_DATA.personalInfo.fullName || PERSONAL_DATA.personalInfo.name}
+          </NameHeading>
+          
+          {/* Menampilkan Title / Tagline */}
           <TitleText>{PERSONAL_DATA.personalInfo.title}</TitleText>
+
           <QuickLinks role="group" aria-label="Quick links">
             {quickLinks.map((link, index) => (
               <Pill
@@ -169,6 +181,7 @@ const HomeTab: React.FC = () => {
               ))}
             </p>
           </div>
+
           <div
             style={{
               background: "rgba(163, 190, 140, 0.1)",
@@ -210,6 +223,7 @@ const HomeTab: React.FC = () => {
               ))}
             </p>
           </div>
+
           <div
             style={{
               background: "rgba(129, 161, 193, 0.1)",
@@ -251,6 +265,7 @@ const HomeTab: React.FC = () => {
               ))}
             </p>
           </div>
+
           <div
             style={{
               background: "rgba(180, 142, 173, 0.1)",

@@ -13,6 +13,6 @@ export default defineConfig(({mode}) => {
     setupFiles: './src/test/setup.ts',
   },
   define: {
-      'process.env': env,
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     },}
 });

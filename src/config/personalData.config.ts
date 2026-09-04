@@ -9,18 +9,19 @@ export const RESUME_OS_MAP: Record<string, string> = {
 export const PERSONAL_DATA: PersonalData = {
   personalInfo: {
     name: "Muhammad Dhiyaul Atha",
+    fullName: "Muhammad Dhiyaul Atha",
     shortName: "Atha",
-    title: "Open Source Enthusiast | DevOps & Backend | Linux | Cloud Native",
+    title: "Muhammad Dhiyaul Atha\nOpen Source Enthusiast | DevOps & Backend | Linux | Cloud Native",
     profileImage: "/preload/photo1.jpg",
     fullNameLogo: "/preload/favicon.svg",
     logo: "/preload/favicon.svg",
-    email: "",
-    website: "mdhiyaulatha.tech",
+    email: "mdhyaulatha@gmail.com", 
+    website: "https://mdhiyaulatha.tech", 
     uname: "Bangkah",
     aboutMe:
-      "I'm Muhammad Dhiyaul Atha, an Informatics Engineering student and open source enthusiast from Nagan Raya, Indonesia.\nI build Linux tools, backend systems, and cloud-native projects.",
+      "I'm Muhammad Dhiyaul Atha, an Informatics Engineering student and open-source enthusiast from Aceh, Indonesia.\nI build Linux tools, backend systems, and cloud-native projects.",
     aboutDescription:
-      "I’m an Informatics Engineering student interested in Linux, backend development, DevOps, and cloud-native technologies.I enjoy building and maintaining open-source projects, particularly Linux tools, CLI applications, backend systems, and developer utilities. Some of my projects include ATHA, NetInfo, Bangkah Launcher, and Sentinel AI.I’m currently learning more about Linux administration, Docker, REST APIs, CI/CD, automation, backend security, and reliable software systems.Most of what I learn comes from building projects, experimenting, solving problems, and improving things along the way.Currently exploring: DevOps, cloud-native infrastructure, backend development, Linux systems, and open-source software.Open to internships, freelance opportunities, collaboration, and open-source projects.",
+      "I’m an Informatics Engineering student interested in Linux, backend development, DevOps, and cloud-native technologies. I enjoy building and maintaining open-source projects, particularly Linux tools, CLI applications, backend systems, and developer utilities. Some of my projects include ATHA, NetInfo, Bangkah Launcher, and Sentinel AI. I’m currently learning more about Linux administration, Docker, REST APIs, CI/CD, automation, backend security, and reliable software systems. Most of what I learn comes from building projects, experimenting, solving problems, and improving things along the way. Currently exploring: DevOps, cloud-native infrastructure, backend development, Linux systems, and open-source software. Open to internships, freelance opportunities, collaboration, and open-source projects.",
     socials: [
       {
         value: "GitHub",
@@ -91,7 +92,7 @@ export const PERSONAL_DATA: PersonalData = {
       },
     },
     {
-      href: "", // Will be set dynamically based on theme
+      href: "", // Set dinamis berdasarkan tema/OS di logika frontend
       value: "Resume",
       style: {
         color: "#EBCB8B",
@@ -105,7 +106,14 @@ export const PERSONAL_DATA: PersonalData = {
   },
   recommendations: {
     value: "Recommendations",
-    data: [],
+    data: [
+      {
+        value: "LinuxLinks Review (Steve Emms)",
+        description:
+          "\"netinfo is a fast, minimal, and reliable command-line utility to display your network and system information. Designed for troubleshooting, auditing, scripting, or simply checking your connection status, netinfo only shows verifiable and essential data.\"",
+        href: "https://www.linuxlinks.com/netinfo-display-network-system-information/",
+      },
+    ],
   },
   experience: {
     value: "Experience",
@@ -140,7 +148,7 @@ export const PERSONAL_DATA: PersonalData = {
         icon: "icons/github-icon.svg",
         value: "NetInfo",
         description:
-          "Fast, minimal, and reliable Linux CLI utility for displaying network and system information.",
+          "Fast, minimal, and reliable Linux CLI utility for displaying network and system information. Featured on LinuxLinks.",
         href: "https://github.com/Bangkah/netinfo",
       },
       {
@@ -162,27 +170,34 @@ export const PERSONAL_DATA: PersonalData = {
         value: "Muslim Life",
         description:
           "Muslim Life adalah aplikasi web Islami berbasis React.js yang membantu umat Muslim dalam menjalani ibadah harian dengan lebih mudah, cepat, dan praktis.",
-        href: "https://muslim-life.vercel.app/"
+        href: "https://muslim-life.vercel.app/",
       },
       {
         icon: "icons/github-icon.svg",
-        value: "AegisCrypt Web",  
+        value: "AegisCrypt Web",
         description:
-          "AegisCrypt Web is a military-grade, browser-based encryption tool. It is designed to be Zero-Knowledge, meaning your files and passwords are processed entirely in your browser's RAM via Web Assembly / Web Crypto API and never transmitted to any server.",
-        href: "https://github.com/Bangkahdev/AegisCrypt-Web"
+          "AegisCrypt Web is a military-grade, browser-based encryption tool. It is designed to be Zero-Knowledge, meaning your files and passwords are processed entirely in your browser's RAM via WebAssembly / Web Crypto API and never transmitted to any server.",
+        href: "https://github.com/Bangkahdev/AegisCrypt-Web",
       },
       {
         icon: "icons/github-icon.svg",
         value: "Enkripsi App",
         description:
           "Aplikasi EnkripsiApp adalah program sederhana berbasis C# Windows Forms yang dibuat untuk mempelajari dan mengimplementasikan algoritma enkripsi teks. Aplikasi ini memiliki antarmuka grafis sederhana sehingga mudah digunakan untuk proses enkripsi maupun dekripsi.",
-        href: "https://github.com/Bangkahdev/EnkripsiApp"
-      }
+        href: "https://github.com/Bangkahdev/EnkripsiApp",
+      },
     ],
   },
   achievements: {
     value: "Key Achievements",
-    data: [],
+    data: [
+      {
+        value: "Featured on LinuxLinks",
+        description:
+          "NetInfo was reviewed and featured on LinuxLinks as a recommended free & open-source CLI utility for Linux system and network diagnosis.",
+        href: "https://www.linuxlinks.com/netinfo-display-network-system-information/",
+      },
+    ],
   },
   education: {
     value: "Education",
@@ -215,15 +230,15 @@ export const PERSONAL_DATA: PersonalData = {
         value: "Belajar Membuat Aplikasi Web dengan React",
         description: "Dicoding Indonesia | Issued June 2026",
         href: "https://www.dicoding.com/certificates/4EXG1RJ8EPRL",
-      },    
+      },
       {
         value: "Code Generation & Optimization with IBM Granite",
-        description: "Hacktiv8 x IBM SkillsBuild Student Development Initiative | Issued Agustus 2025",
+        description: "Hacktiv8 x IBM SkillsBuild Student Development Initiative | Issued August 2025",
         href: "https://www.credly.com/badges/af6c8d8c-da8f-4f19-a213-9e63b2f3bd93/linked_in_profile",
       },
       {
         value: "Belajar Prinsip Pemrograman SOLID",
-        description: "Dicoding Indonesia | Issued Oktober 2025",
+        description: "Dicoding Indonesia | Issued October 2025",
         href: "https://www.dicoding.com/certificates/N9ZO2M7N6PG5",
       },
       {
@@ -248,9 +263,9 @@ export const PERSONAL_DATA: PersonalData = {
       },
       {
         value: "Belajar Fundamental Deep Learning",
-        description: "Dicoding Indonesia | Issued Agustus 2026",
-        href: "https://www.dicoding.com/certificates/1OP8768Y1ZQK"
-      }
-    ]
-  }
+        description: "Dicoding Indonesia | Issued August 2026",
+        href: "https://www.dicoding.com/certificates/1OP8768Y1ZQK",
+      },
+    ],
+  },
 };
