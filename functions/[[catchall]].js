@@ -1,5 +1,5 @@
 export async function onRequest(context) {
-  const request = context.request;
+  const { request, env } = context;
   const url = new URL(request.url);
   const path = url.pathname;
   const clientIP = request.headers.get("cf-connecting-ip") || "Unknown IP";
@@ -7,16 +7,19 @@ export async function onRequest(context) {
   const fullUrlString = request.url;
   const lowerUrl = fullUrlString.toLowerCase();
 
+  // Jika diakses di root (/) atau halaman index tanpa parameter serangan, biarkan tampil sebagai web portofolio normal
+  if (path === "/" && !url.search && !lowerUrl.includes(".")) {
+    return env.ASSETS.fetch(request);
+  }
+
   let attackType = "Pengunjung Santai / Nongkrong";
   let customRoast = "";
   let fakePayload = "";
-  
-  // Sisa kode ke bawah tetap sama...
 
   // 1. Serangan Berat: RCE / Command Injection
   if (lowerUrl.includes("cat%20") || lowerUrl.includes("wget") || lowerUrl.includes("curl") || lowerUrl.includes("bash") || lowerUrl.includes("sh") || lowerUrl.includes("uname") || lowerUrl.includes("id;") || lowerUrl.includes("nc%20") || lowerUrl.includes("exec") || lowerUrl.includes("system")) {
     attackType = "Remote Code Execution (RCE)";
-    customRoast = "Wah, niat banget mau remote server pakai command-line! Tenang bang, ini Cloudflare Pages, bukan VPS kenalanmu. Mending istirahat sambil nunggu warkop buka.";
+    customRoast = "Geloo, niat banget mau remote server pakai command-line! Tenang bang, ini Cloudflare Pages, bukan VPS kenalanmu. Mending istirahat sambil nunggu warkop buka.";
     fakePayload = "uid=0(root) gid=0(root) groups=0(root)\n[INFO]: Server aman terkendali, silakan lanjut ngopi lagi.";
   }
   // 2. Serangan Berat: SSRF
@@ -35,7 +38,7 @@ export async function onRequest(context) {
   else if (url.search.includes("union") || url.search.includes("select") || url.search.includes("'") || url.search.includes("OR") || fullUrlString.includes("OR") || lowerUrl.includes("drop") || lowerUrl.includes("insert")) {
     attackType = "SQL Injection (SQLi)";
     customRoast = "Asyik banget nyoba injeksi SQL! Tenang aja, database di sini cuma nyimpen list menu warkop dan rating kopi terenak, aman kok.";
-    fakePayload = "1. SELECT * FROM menu_warkop WHERE kategori='kopi_tubruk';\n2. INSERT INTO catatan_gabut (aktivitas) VALUES ('Nge-test SQLi tengah malem');\n-- Status: Aman, gak ada data penting yang terluka!";
+    fakePayload = "1. SELECT * FROM menu_warkop WHERE kategori='kopi_tubruk';\n2. INSERT INTO catatan_gabut (aktivitas) VALUES ('Nge-test SQLi tengah malem');\n-- Status: Aman, gak ada data penting yang harus di suntik kok!";
   }
   // 5. Serangan Menengah: Path Traversal / LFI
   else if (fullUrlString.includes("..") || fullUrlString.includes("passwd") || fullUrlString.includes("win.ini") || fullUrlString.includes("shadow") || fullUrlString.includes("hosts")) {
@@ -67,11 +70,11 @@ export async function onRequest(context) {
     customRoast = "Mencoba mengorek history git ya? Isinya cuma commit message galau pas ngerjain laprak, gak ada source code rahasia.";
     fakePayload = "[core]\n\trepositoryformatversion = 0\n\tfilemode = true\n\tbare = false\n\tlogallrefupdates = true\n# Commit terakhir: 'bismillah fix inimah'";
   }
-  // 10. Traffic Normal / Pengunjung Biasa
+  // 10. Jika mengakses URL lain yang tidak terdaftar
   else {
-    attackType = "Standard Web Traffic";
-    customRoast = "Halo, Pengunjung budiman! Selamat datang di portofolio ini. Silakan dinikmati halamannya, semoga harimu menyenangkan.";
-    fakePayload = "<html><body><h1>Selamat Datang di Portofolio Muhammad Dhiyaul Atha</h1><p>Status: Aman, santai, dan damai.</p></body></html>";
+    attackType = "Directory Scan / Unknown Path";
+    customRoast = "Nyari apa bro? Halaman ini kosong, tapi lumayan buat nambah statistik log warkop malam ini.";
+    fakePayload = "Status: 123 hahah (Virtual Honeypot Catch-all Active)";
   }
 
   const responseBody = `
