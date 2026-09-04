@@ -38,10 +38,10 @@ function App() {
     <>
       {/* React Helmet Dynamic Meta Tags */}
       <Helmet>
-        <title>Muhammad Dhiyaul Atha (Bangkah) — DevOps & Backend Engineer</title>
+        <title>Muhammad Dhiyaul Atha — DevOps & Backend Engineer</title>
         <meta
           name="description"
-          content="Portofolio resmi Muhammad Dhiyaul Atha (Bangkah). Informatics Engineering Student, Open Source Maintainer (NetInfo, ATHA), Linux Enthusiast, DevOps & Backend Engineer."
+          content="Muhammad Dhiyaul Atha. Informatics Engineering Student, Open Source Maintainer (NetInfo, ATHA), Linux Enthusiast, DevOps & Backend Engineer."
         />
         <meta
           name="keywords"
