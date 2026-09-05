@@ -12,6 +12,10 @@ export async function onRequest(context) {
   let fakePayload = "";
   let isAttack = false;
 
+  if (path.startsWith("/assets/") || path.startsWith("/preload/") || path.endsWith(".js") || path.endsWith(".css") || path.endsWith(".svg") || path.endsWith(".png") || path.endsWith(".ico")) {
+      return env.ASSETS.fetch(request);
+    }
+
   // Deteksi Pola Serangan & Fuzzing
   if (lowerUrl.includes("cat%20") || lowerUrl.includes("wget") || lowerUrl.includes("curl") || lowerUrl.includes("bash") || lowerUrl.includes("sh") || lowerUrl.includes("uname") || lowerUrl.includes("id;") || lowerUrl.includes("nc%20") || lowerUrl.includes("exec") || lowerUrl.includes("system")) {
     isAttack = true;
